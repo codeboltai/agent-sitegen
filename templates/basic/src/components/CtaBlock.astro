@@ -1,0 +1,25 @@
+---
+/**
+ * @sitegen component
+ * type: cta-block
+ * name: CtaBlock
+ * description: Closing call-to-action section.
+ * group: Core Sections
+ * props:
+ *   heading:
+ *     type: string
+ *     required: true
+ *   body:
+ *     type: string
+ *     required: false
+ *   button:
+ *     type: object
+ *     required: false
+ */
+const { heading, body, button } = Astro.props;
+---
+<section class="cta">
+  <h2>{heading}</h2>
+  {body && <p>{body}</p>}
+  {button && <a class="button" href={button.href}>{button.label}</a>}
+</section>

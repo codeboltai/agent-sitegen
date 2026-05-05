@@ -1,0 +1,28 @@
+{
+  "name": "@codebolt/agent-sitegen",
+  "version": "0.1.0",
+  "description": "Generate static sites from YAML content and reusable templates.",
+  "type": "module",
+  "bin": {
+    "agent-sitegen": "./bin/agent-sitegen.js",
+    "sitegen": "./bin/agent-sitegen.js"
+  },
+  "scripts": {
+    "start": "node ./bin/agent-sitegen.js",
+    "generate:example": "node ./bin/agent-sitegen.js generate --template ../../templates/basic --content ../../examples/basic/site.yaml --output ../../.tmp/basic-site",
+    "validate:example": "node ./bin/agent-sitegen.js validate --template ../../templates/basic --content ../../examples/basic/site.yaml",
+    "inspect:template": "node ./bin/agent-sitegen.js templates inspect ../../templates/basic --json"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md"
+  ],
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

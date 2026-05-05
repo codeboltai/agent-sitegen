@@ -1,0 +1,31 @@
+---
+/**
+ * @sitegen component
+ * type: hero
+ * name: Hero
+ * description: Intro section with heading, subheading, and optional buttons.
+ * group: Core Sections
+ * props:
+ *   heading:
+ *     type: string
+ *     required: true
+ *   subheading:
+ *     type: string
+ *     required: false
+ *   buttons:
+ *     type: array
+ *     required: false
+ */
+const { heading, subheading, buttons = [] } = Astro.props;
+---
+<section class="hero">
+  <div>
+    <h1>{heading}</h1>
+    {subheading && <p>{subheading}</p>}
+    {buttons.length > 0 && (
+      <div class="actions">
+        {buttons.map((button) => <a class="button" href={button.href}>{button.label}</a>)}
+      </div>
+    )}
+  </div>
+</section>

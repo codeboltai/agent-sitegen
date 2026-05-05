@@ -1,0 +1,8 @@
+node_modules
+.tmp
+*.tgz
+packages/*/node_modules
+templates/*/node_modules
+templates/*/.astro
+templates/*/.cache
+templates/*/dist

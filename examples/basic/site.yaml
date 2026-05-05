@@ -1,0 +1,35 @@
+site:
+  name: "Acme Studio"
+  tagline: "Reusable content-driven websites."
+
+navigation:
+  navbar:
+    links:
+      - { label: "Work", href: "/" }
+      - { label: "Contact", href: "/" }
+  footer:
+    links:
+      - { label: "Privacy", href: "/" }
+
+pages:
+  - slug: ""
+    title: "Acme Studio"
+    sections:
+      - type: hero
+        heading: "Launch content-driven sites from reusable templates."
+        subheading: "Agentic Sitegen turns YAML content into static Astro projects without coupling the CLI to a specific design."
+        buttons:
+          - { label: "Start Building", href: "/" }
+      - type: card-grid
+        heading: "Why it works"
+        cards:
+          - title: "Template-owned design"
+            body: "The template controls framework, layout, components, and deployment details."
+          - title: "Content-owned pages"
+            body: "YAML controls navigation, routes, and section props."
+          - title: "LLM-friendly discovery"
+            body: "The CLI can inspect templates and produce prompts from component metadata."
+      - type: cta-block
+        heading: "Create your own template"
+        body: "Start simple, then add richer component metadata as the template matures."
+        button: { label: "Inspect Template", href: "/" }

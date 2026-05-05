@@ -1,0 +1,18 @@
+{
+  "name": "agentic-sitegen-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "templates/*"
+  ],
+  "scripts": {
+    "sitegen": "node packages/sitegen/bin/agent-sitegen.js",
+    "validate:example": "node packages/sitegen/bin/agent-sitegen.js validate --template ./templates/basic --content ./examples/basic/site.yaml",
+    "generate:example": "node packages/sitegen/bin/agent-sitegen.js generate --template ./templates/basic --content ./examples/basic/site.yaml --output ./.tmp/basic-site",
+    "inspect:basic": "node packages/sitegen/bin/agent-sitegen.js templates inspect ./templates/basic --json",
+    "build:example": "npm run generate:example && npm install --prefix ./.tmp/basic-site --loglevel error && npm run --prefix ./.tmp/basic-site build"
+  },
+  "devDependencies": {}
+}

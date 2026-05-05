@@ -1,0 +1,28 @@
+---
+/**
+ * @sitegen component
+ * type: card-grid
+ * name: CardGrid
+ * description: Responsive grid of content cards.
+ * group: Core Sections
+ * props:
+ *   heading:
+ *     type: string
+ *     required: false
+ *   cards:
+ *     type: array
+ *     required: true
+ */
+const { heading, cards = [] } = Astro.props;
+---
+<section class="section">
+  {heading && <h2>{heading}</h2>}
+  <div class="card-grid">
+    {cards.map((card) => (
+      <article class="card">
+        <h3>{card.title}</h3>
+        <p>{card.body || card.description}</p>
+      </article>
+    ))}
+  </div>
+</section>

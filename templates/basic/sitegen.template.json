@@ -1,0 +1,16 @@
+{
+  "name": "basic",
+  "description": "Minimal Astro template for static content sites.",
+  "generated": {
+    "pagesDir": "src/pages",
+    "siteData": "src/data/site-data.js",
+    "layout": "src/layouts/BaseLayout.astro",
+    "componentsDir": "src/components"
+  },
+  "componentGroups": [
+    {
+      "name": "Core Sections",
+      "components": ["hero", "card-grid", "cta-block"]
+    }
+  ]
+}

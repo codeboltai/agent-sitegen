@@ -1,0 +1,32 @@
+---
+import '../styles/global.css';
+
+const { title, site, navigation } = Astro.props;
+const navLinks = navigation?.navbar?.links || [];
+const footerLinks = navigation?.footer?.links || [];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">{site?.name || 'Site'}</a>
+      <nav>
+        {navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>{site?.tagline}</p>
+      <nav>
+        {footerLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+      </nav>
+    </footer>
+  </body>
+</html>
