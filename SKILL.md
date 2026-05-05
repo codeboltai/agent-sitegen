@@ -141,6 +141,32 @@ template/
 
 `sitegen.template.json` describes the generation contract. It should document generated paths and public component types the content can use.
 
+Component metadata can also live beside the component code. The CLI discovers `src/components/*.{astro,jsx,tsx}` files and reads a JSDoc block that contains `@sitegen`. The remaining lines in that block are parsed as YAML metadata.
+
+Example component metadata:
+
+```astro
+---
+/**
+ * @sitegen
+ * type: hero
+ * description: Top-of-page hero section.
+ * group: Hero Sections
+ * props:
+ *   title:
+ *     type: string
+ *     required: true
+ *   body:
+ *     type: string
+ *   actions:
+ *     type: array
+ */
+const { title, body, actions = [] } = Astro.props;
+---
+```
+
+Use component comments for metadata that belongs to the component itself: type, description, group, and prop hints. Use `sitegen.template.json` for template-level metadata: template name, generated paths, component groups, private/excluded components, and explicit overrides.
+
 Example:
 
 ```json
@@ -171,8 +197,8 @@ When content needs a new section type:
 1. Choose a stable kebab-case section type, such as `logo-cloud`, `timeline`, or `feature-comparison`.
 2. Add a component in the template, such as `src/components/LogoCloud.astro`.
 3. Follow the template's existing component style, data conventions, CSS system, and accessibility patterns.
-4. Update the renderer or section mapping if the template uses an explicit component map.
-5. Add the component entry to `sitegen.template.json`.
+4. Add an `@sitegen` metadata comment to the component, or add the component entry to `sitegen.template.json`.
+5. Update the renderer or section mapping if the template uses an explicit component map.
 6. Add content using the new section type to `site.yaml`.
 7. Run `sitegen validate`.
 8. Run `sitegen generate`.
