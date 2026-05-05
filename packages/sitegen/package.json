@@ -4,8 +4,8 @@
   "description": "Generate static sites from YAML content and reusable templates.",
   "type": "module",
   "bin": {
-    "agent-sitegen": "./bin/agent-sitegen.js",
-    "sitegen": "./bin/agent-sitegen.js"
+    "agent-sitegen": "bin/agent-sitegen.js",
+    "sitegen": "bin/agent-sitegen.js"
   },
   "scripts": {
     "start": "node ./bin/agent-sitegen.js",
